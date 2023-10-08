@@ -1,5 +1,5 @@
 name: GondalKits
-version: '1.3'
+version: '1.0'
 main: tech.thatlukinhasguy.gondalkits.GondalKits
 api-version: '1.19'
 commands:
