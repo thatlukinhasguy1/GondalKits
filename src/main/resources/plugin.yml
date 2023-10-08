@@ -1,0 +1,26 @@
+name: GondalKits
+version: '1.3'
+main: tech.thatlukinhasguy.gondalkits.GondalKits
+api-version: '1.19'
+commands:
+  createkit:
+    permission: gondalkits.command.createkit
+    aliases: [makekit, ckit]
+  deletekit:
+    permission: gondalkits.command.deletekit
+    aliases: [delkit, purgekit]
+  kit:
+    permission: gondalkits.command.kit
+  kits:
+    permission: gondalkits.command.kits
+    aliases: [listkits]
+
+permissions:
+  gondalkits.command.createkit:
+    default: op
+  gondalkits.command.deletekit:
+    default: op
+  gondalkits.command.kit:
+    default: op
+  gondalkits.command.kits:
+    default: op
