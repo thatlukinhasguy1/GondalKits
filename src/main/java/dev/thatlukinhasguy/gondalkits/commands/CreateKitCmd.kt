@@ -36,7 +36,13 @@ class CreateKitCmd(private val plugin: Main) : CommandExecutor, TabCompleter {
                 return false
             }
 
-            val kitLimit: Int = plugin.config.getInt("kitConfig.kit-limit", 26)
+            val configKitLimit: Int = plugin.config.getInt("kitConfig.kit-limit")
+
+            val kitLimit: Int = if (configKitLimit <= 26) {
+                plugin.config.getInt("kitConfig.kit-limit")
+            } else {
+                26
+            }
 
             if (KitManager.checkKitLimit(sender, plugin) > kitLimit) {
                 sender.sendMessage("$prefix You have reached the kit limit.")
