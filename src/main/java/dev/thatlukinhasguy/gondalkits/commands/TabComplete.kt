@@ -1,11 +1,11 @@
-package tech.thatlukinhasguy.gondalkits.commands
+package dev.thatlukinhasguy.gondalkits.commands
 
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.command.TabCompleter
 import org.bukkit.entity.Player
-import tech.thatlukinhasguy.gondalkits.Main
-import tech.thatlukinhasguy.gondalkits.manager.KitManager
+import dev.thatlukinhasguy.gondalkits.Main
+import dev.thatlukinhasguy.gondalkits.manager.KitManager
 
 open class TabComplete(private val plugin: Main) : TabCompleter {
     override fun onTabComplete(sender: CommandSender, command: Command, alias: String, args: Array<out String>): List<String> {

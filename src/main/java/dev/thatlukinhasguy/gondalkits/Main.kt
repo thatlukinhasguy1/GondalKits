@@ -1,10 +1,13 @@
-package tech.thatlukinhasguy.gondalkits
+package dev.thatlukinhasguy.gondalkits
 
+import dev.thatlukinhasguy.gondalkits.commands.CreateKitCmd
+import dev.thatlukinhasguy.gondalkits.commands.DeleteKitCmd
+import dev.thatlukinhasguy.gondalkits.commands.KitCmd
+import dev.thatlukinhasguy.gondalkits.commands.KitsCmd
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.PluginManager
 import org.bukkit.plugin.java.JavaPlugin
 import tech.thatlukinhasguy.gondalkits.commands.*
-import tech.thatlukinhasguy.gondalkits.listener.KillListener
 import java.io.File
 import java.io.IOException
 
@@ -15,13 +18,13 @@ class Main : JavaPlugin() {
         setupCommands()
         setupListeners()
         logger.info("+----------------------------------------------+")
-        logger.info("|     GondalKits inicializado com sucesso!     |")
+        logger.info("|     GondalKits initialized with success!     |")
         logger.info("+----------------------------------------------+")
     }
 
     override fun onDisable() {
         logger.info("+----------------------------------------------+")
-        logger.info("|     GondalKits desabilitado com sucesso!     |")
+        logger.info("|      GondalKits disabled with success!       |")
         logger.info("+----------------------------------------------+")
     }
 
@@ -43,7 +46,7 @@ class Main : JavaPlugin() {
     }
 
     private fun setupListeners() {
-        val listeners = listOf(KillListener(this), KitsCmd(this))
+        val listeners = listOf(KitsCmd(this))
 
         val pluginManager: PluginManager = server.pluginManager
         listeners.forEach { listener ->

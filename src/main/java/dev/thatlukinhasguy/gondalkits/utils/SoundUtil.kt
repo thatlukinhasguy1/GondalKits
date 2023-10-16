@@ -1,4 +1,4 @@
-package tech.thatlukinhasguy.gondalkits.utils
+package dev.thatlukinhasguy.gondalkits.utils
 
 import org.bukkit.Sound
 import org.bukkit.entity.Player

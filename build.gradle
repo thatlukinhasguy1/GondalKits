@@ -4,8 +4,8 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
-group = 'tech.thatlukinhasguy'
-version = '1.0-SNAPSHOT'
+group = 'dev.thatlukinhasguy'
+version = '1.1'
 
 repositories {
     mavenCentral()

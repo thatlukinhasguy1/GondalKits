@@ -1,13 +1,15 @@
 @file:Suppress("DEPRECATION")
 
-package tech.thatlukinhasguy.gondalkits.manager
+package dev.thatlukinhasguy.gondalkits.manager
 
 import org.bukkit.*
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.scheduler.BukkitRunnable
-import tech.thatlukinhasguy.gondalkits.Main
+import dev.thatlukinhasguy.gondalkits.Main
+import dev.thatlukinhasguy.gondalkits.utils.MessageUtil
+import dev.thatlukinhasguy.gondalkits.utils.SoundUtil
 import tech.thatlukinhasguy.gondalkits.utils.*
 import java.io.File
 
@@ -56,7 +58,7 @@ object KitManager {
         }.runTaskAsynchronously(plugin)
     }
 
-    fun givePlayerKit(plugin: Main, player: Player, kitName: String, refill: Boolean) {
+    fun givePlayerKit(plugin: Main, player: Player, kitName: String) {
         val kitConfig = loadKitConfig(player.name, plugin)
 
         val prefix = MessageUtil(plugin).getPrefix()
@@ -67,24 +69,24 @@ object KitManager {
 
         inventory.clear()
 
+        val announceLoadKit = plugin.config.getBoolean("kitConfig.announce-when-kit-is-loaded")
+
         for (i in 0 until inventory.size) {
             if (i >= itemList.size) break
             val item = itemList[i] as? ItemStack
             if (item != null) inventory.setItem(i, item)
         }
 
-        if (refill) {
-            player.sendTitle("${ChatColor.BLUE} Refill!", "${ChatColor.WHITE} Você recebeu um refill por conseguir ${ChatColor.GREEN} 3 kills consecutivas!", 2, 50, 2)
-            SoundUtil.sound(player, Sound.ENTITY_ENDER_DRAGON_FLAP)
-            return
-        }
-
-        player.sendActionBar("${ChatColor.WHITE}O kit ${ChatColor.GREEN}'$kitName'${ChatColor.WHITE} foi equipado!")
+        player.sendActionBar("${ChatColor.WHITE}The kit ${ChatColor.GREEN}'$kitName'${ChatColor.WHITE} was equipped!")
         SoundUtil.sound(player, Sound.ENTITY_ENDER_DRAGON_FLAP)
 
-        Bukkit.getOnlinePlayers().forEach { p ->
-            p.sendMessage("$prefix ${ChatColor.GREEN}${player.name}${ChatColor.WHITE} carregou um kit!")
+        if (announceLoadKit) {
+            Bukkit.getOnlinePlayers().forEach { p ->
+                p.sendMessage("$prefix ${ChatColor.GREEN}${player.name}${ChatColor.WHITE} loaded a kit!")
+            }
+            return
         }
+        return
     }
 
     fun getKitNames(player: Player, plugin: Main) = loadKitConfig(player.name, plugin).getConfigurationSection("kit")?.getKeys(false) ?: emptyList()

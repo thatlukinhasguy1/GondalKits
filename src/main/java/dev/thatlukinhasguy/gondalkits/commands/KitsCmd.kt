@@ -1,7 +1,8 @@
 @file:Suppress("DEPRECATION")
 
-package tech.thatlukinhasguy.gondalkits.commands
+package dev.thatlukinhasguy.gondalkits.commands
 
+import dev.thatlukinhasguy.gondalkits.Main
 import org.bukkit.*
 import org.bukkit.command.*
 import org.bukkit.entity.Player
@@ -10,8 +11,8 @@ import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.*
 import org.bukkit.inventory.meta.ItemMeta
 import tech.thatlukinhasguy.gondalkits.*
-import tech.thatlukinhasguy.gondalkits.manager.KitManager
-import tech.thatlukinhasguy.gondalkits.utils.MessageUtil
+import dev.thatlukinhasguy.gondalkits.manager.KitManager
+import dev.thatlukinhasguy.gondalkits.utils.MessageUtil
 
 class KitsCmd(private val plugin: Main) : CommandExecutor, Listener, TabCompleter {
 
@@ -34,7 +35,7 @@ class KitsCmd(private val plugin: Main) : CommandExecutor, Listener, TabComplete
 
             val kitName = ChatColor.stripColor(clickedItem.itemMeta?.displayName ?: "") ?: return
 
-            KitManager.givePlayerKit(plugin, player, kitName, false)
+            KitManager.givePlayerKit(plugin, player, kitName)
 
             player.playSound(player.location, Sound.UI_BUTTON_CLICK, 1.0f, 1.0f)
             player.closeInventory()
