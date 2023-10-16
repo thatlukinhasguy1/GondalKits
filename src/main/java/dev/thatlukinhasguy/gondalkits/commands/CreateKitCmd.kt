@@ -49,9 +49,12 @@ class CreateKitCmd(private val plugin: Main) : CommandExecutor, TabCompleter {
                 return false
             }
 
-            KitManager.savePlayerInventory(sender, kitName, plugin)
+            if (sender.inventory.isEmpty) {
+                sender.sendMessage("$prefix You can't create an empty kit.")
+                return false
+            }
 
-            if (sender.inventory.isEmpty) return false
+            KitManager.savePlayerInventory(sender, kitName, plugin)
 
             sender.sendMessage("$prefix The kit ${ChatColor.GREEN}$kitName${ChatColor.WHITE} has been created successfully!")
 
