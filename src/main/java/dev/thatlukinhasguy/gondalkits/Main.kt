@@ -7,7 +7,6 @@ import dev.thatlukinhasguy.gondalkits.commands.KitsCmd
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.PluginManager
 import org.bukkit.plugin.java.JavaPlugin
-import tech.thatlukinhasguy.gondalkits.commands.*
 import java.io.File
 import java.io.IOException
 

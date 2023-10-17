@@ -1,5 +1,5 @@
 strings:
-  prefix: "&9Gondal &8»&f "
+  prefix: "&9Kits &8»&f"
   kits-gui-title: "&0Your Kits"
 kitConfig:
   kit-limit: 26
