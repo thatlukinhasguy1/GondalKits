@@ -11,14 +11,13 @@ import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.*
 import org.bukkit.inventory.meta.ItemMeta
 import dev.thatlukinhasguy.gondalkits.manager.KitManager
-import dev.thatlukinhasguy.gondalkits.utils.MessageUtil
 
 class KitsCmd(private val plugin: Main) : CommandExecutor, Listener, TabCompleter {
 
-    private val title = MessageUtil(plugin).getTitle()
+    private val title = ChatColor.BLACK.toString() + "Your Kits"
 
     companion object {
-        private const val NO_KITS_MESSAGE = "Você não tem kits!"
+        private const val NO_KITS_MESSAGE = "You don't have kits!"
     }
 
     @EventHandler

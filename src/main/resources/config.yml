@@ -1,6 +1,5 @@
 strings:
   prefix: "&9Kits &8»&f"
-  kits-gui-title: "&0Your Kits"
 kitConfig:
   kit-limit: 26
   announce-when-kit-is-loaded: false

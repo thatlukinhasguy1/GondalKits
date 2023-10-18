@@ -1,9 +1,6 @@
 package dev.thatlukinhasguy.gondalkits
 
-import dev.thatlukinhasguy.gondalkits.commands.CreateKitCmd
-import dev.thatlukinhasguy.gondalkits.commands.DeleteKitCmd
-import dev.thatlukinhasguy.gondalkits.commands.KitCmd
-import dev.thatlukinhasguy.gondalkits.commands.KitsCmd
+import dev.thatlukinhasguy.gondalkits.commands.*
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.PluginManager
 import org.bukkit.plugin.java.JavaPlugin
@@ -36,7 +33,8 @@ class Main : JavaPlugin() {
             "createkit" to CreateKitCmd(this),
             "deletekit" to DeleteKitCmd(this),
             "kits" to KitsCmd(this),
-            "kit" to KitCmd(this)
+            "kit" to KitCmd(this),
+            "gondalkits" to ReloadCmd(this)
         )
 
         pluginCommands.forEach { (commandName, executor) ->

@@ -1,5 +1,5 @@
 name: GondalKits
-version: '1.3'
+version: '1.4'
 main: dev.thatlukinhasguy.gondalkits.Main
 commands:
   createkit:
@@ -13,6 +13,8 @@ commands:
   kits:
     permission: gondalkits.command.kits
     aliases: [listkits]
+  gondalkits:
+    permission: gondalkits.reload
 
 permissions:
   gondalkits.command.createkit:
@@ -22,4 +24,6 @@ permissions:
   gondalkits.command.kit:
     default: op
   gondalkits.command.kits:
+    default: op
+  gondalkits.reload:
     default: op
